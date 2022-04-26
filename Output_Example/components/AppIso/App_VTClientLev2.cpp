@@ -250,6 +250,8 @@ void init_GPIO(void)
 static int I1 = 0;
 static int I2 = 0;
 static int I3 = 0;
+static int I4 = 0;
+static int Q = 0;
 RS RS2;
 TON TON3;
 R_TRIG R_TRIG4;
@@ -267,9 +269,9 @@ void AppVTClientDoProcess(const ISOVT_EVENT_DATA_T* psEvData)
 	TON3(I3);
 	R_TRIG4(TON3.Q);
 	RS2(I1 or I2,R_TRIG4.Q);
-
-	gpio_set_level(GPIO_Q1, RS2.Q1);
-	gpio_set_level(GPIO_Q2, RS2.Q1);
+	Q= RS2.Q1 or I4;
+	gpio_set_level(GPIO_Q1, Q);
+	gpio_set_level(GPIO_Q2, Q);
 }
 
 
@@ -300,14 +302,13 @@ void VTC_handleSoftkeysAndButton_Q2(const struct ButtonActivation_S *pButtonData
 
 	case BUTTON_STATE_PRESSED:
 	case BUTTON_STATE_HELD:
-
+		I4=1;
 		break;
 
 
 	case BUTTON_STATE_RELEASED:
 	case BUTTON_STATE_ABORTED:
-		gpio_set_level(GPIO_Q2, 0);
-
+		I4=0;
 		break;
 
 
