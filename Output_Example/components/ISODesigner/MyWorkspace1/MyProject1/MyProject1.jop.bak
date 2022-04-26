@@ -160,6 +160,21 @@
 				</Property>
 			</PropertySheet>
 		</Object>
+		<Object Class="CDataMask" Name="" ObjectName="DataMask_1001" Pinned="FALSE" JVS-ID="1001" JVS-RefCount="1">
+			<PropertySheet Name="Model">
+				<Property Name="MaskType">
+					<Value>1</Value>
+				</Property>
+				<Property Name="Path">
+					<Value>.\DataMask_1001.jvi</Value>
+				</Property>
+				<Property Name="Comment">
+					<Value>
+						<![CDATA[AAA=]]>
+					</Value>
+				</Property>
+			</PropertySheet>
+		</Object>
 		<Object Class="CSoftKeyMask" Name="" ObjectName="SoftKeyMask_Main" Pinned="FALSE" JVS-ID="4000" JVS-RefCount="1">
 			<PropertySheet Name="Model">
 				<Property Name="MaskType">
